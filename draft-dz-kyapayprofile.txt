@@ -2,33 +2,48 @@
 
 
 
-Internet Engineering Task Force (IETF)                      D. Zagidulin
-Request for Comments: 1                                 13 November 2025
-Category: Informational                                                 
-ISSN: 2070-1721
+TODO                                                        D. Zagidulin
+Internet-Draft                                          13 November 2025
+Intended status: Informational                                          
+Expires: 17 May 2026
 
 
                              KYAPay Profile
+                         draft-dz-kyapayprofile
 
 Abstract
 
-   TODO Abstract
+   This document defines a profile for agent identity and payment tokens
+   in JSON web token (JWT) format.  Authorization servers and resource
+   servers from different vendors can leverage this profile to consume
+   identity and payment tokens in an interoperable manner.
+
+About This Document
+
+   This note is to be removed before publishing as an RFC.
+
+   Status information for this document may be found at
+   https://datatracker.ietf.org/doc/draft-dz/.
+
+   Source for this draft and an issue tracker can be found at
+   https://github.com/interop-alliance/kyapay-ietf-draft.
 
 Status of This Memo
 
-   This document is not an Internet Standards Track specification; it is
-   published for informational purposes.
+   This Internet-Draft is submitted in full conformance with the
+   provisions of BCP 78 and BCP 79.
 
-   This document is a product of the Internet Engineering Task Force
-   (IETF).  It represents the consensus of the IETF community.  It has
-   received public review and has been approved for publication by the
-   Internet Engineering Steering Group (IESG).  Not all documents
-   approved by the IESG are candidates for any level of Internet
-   Standard; see Section 2 of RFC 7841.
+   Internet-Drafts are working documents of the Internet Engineering
+   Task Force (IETF).  Note that other groups may also distribute
+   working documents as Internet-Drafts.  The list of current Internet-
+   Drafts is at https://datatracker.ietf.org/drafts/current/.
 
-   Information about the current status of this document, any errata,
-   and how to provide feedback on it may be obtained at
-   https://www.rfc-editor.org/info/rfc1.
+   Internet-Drafts are draft documents valid for a maximum of six months
+   and may be updated, replaced, or obsoleted by other documents at any
+   time.  It is inappropriate to use Internet-Drafts as reference
+   material or to cite them other than as "work in progress."
+
+   This Internet-Draft will expire on 17 May 2026.
 
 Copyright Notice
 
@@ -36,28 +51,34 @@ Copyright Notice
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
-   Provisions Relating to IETF Documents
-   (https://trustee.ietf.org/license-info) in effect on the date of
-   publication of this document.  Please review these documents
-   carefully, as they describe your rights and restrictions with respect
-   to this document.  Code Components extracted from this document must
-   include Revised BSD License text as described in Section 4.e of the
-   Trust Legal Provisions and are provided without warranty as described
-   in the Revised BSD License.
+   Provisions Relating to IETF Documents (https://trustee.ietf.org/
+   license-info) in effect on the date of publication of this document.
+   Please review these documents carefully, as they describe your rights
+   and restrictions with respect to this document.  Code Components
+   extracted from this document must include Revised BSD License text as
+   described in Section 4.e of the Trust Legal Provisions and are
+   provided without warranty as described in the Revised BSD License.
 
 Table of Contents
 
    1.  Introduction
    2.  Conventions and Definitions
-   3.  Security Considerations
-   4.  IANA Considerations
-   5.  Normative References
+   3.  KYAPay Token Schemas
+     3.1.  KYA Token
+     3.2.  PAY Token
+     3.3.  KYA+PAY Token
+   4.  Security Considerations
+   5.  IANA Considerations
+   6.  Normative References
    Acknowledgments
    Author's Address
 
 1.  Introduction
 
-   TODO Introduction
+   As agents evolve from pre-orchestrated workflow automations to truly
+   autonomous or semi-autonomous assistants, they need the ability to
+   identify themselves and more importantly identify their human
+   principals.
 
 2.  Conventions and Definitions
 
@@ -67,15 +88,155 @@ Table of Contents
    BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all
    capitals, as shown here.
 
-3.  Security Considerations
+3.  KYAPay Token Schemas
+
+3.1.  KYA Token
+
+   The following informative example displays a decoded KYA type token.
+
+{
+  "kid": "<JWK Key ID>",
+  "alg": "ES256",
+  "typ": "kya+JWT"
+}.{
+  "iss": "<URL of the token issuer>",
+  "iat": 1742245254,  // 'issued at' timestamp
+  "exp": 1773867654,  // 'expiration' timestamp
+  "jti": "b9821893-7699-4d24-af06-803a6a16476b", // Unique token ID
+  "sub": "<Buyer Agent Account ID>",
+  "aud": "<Seller Agent Account ID>",
+
+  // Claims common to both 'pay' and 'kya' types
+  "env": "<Issuer environment (sandbox, production, etc)>",
+  "ver": "1", // Version of the token
+  "ssi": "<Seller Service ID>", // Seller service that this token was created for
+  "btg": "<Buyer Tag (Buyer's internal reference ID)>",
+
+  // Skyfire-defined claims for 'kya' (Know Your Agent) type tokens
+  "bid": {  // Buyer Identity claims
+    "email": "buyer@buyer.com”,
+    ...
+  },
+  "apd": { // Agent Platform Identity claims
+  },
+  "aid": { // Agent Identity claims
+  }
+}
+
+                      Figure 1: A KYA type token
+
+3.2.  PAY Token
+
+   The following informative example displays a decoded PAY type token.
+
+{
+  "kid": "<JWK Key ID>",
+  "alg": "ES256",
+  "typ": "pay+JWT"
+}.{
+  "iss": "<URL of the token issuer>",
+  "iat": 1742245254,  // 'issued at' timestamp
+  "exp": 1773867654,  // 'expiration' timestamp
+  "jti": "b9821893-7699-4d24-af06-803a6a16476b", // Unique token ID
+  "sub": "<Buyer Agent Account ID>",
+  "aud": "<Seller Agent Account ID>",
+
+  // Claims common to both 'pay' and 'kya' types
+  "env": "<Issuer environment (sandbox, production, etc)>",
+  "ver": "1", // Version of the token
+  "ssi": "<Seller Service ID>", // Seller service that this token was created for
+  "btg": "<Buyer Tag (Buyer's internal reference ID)>",
+
+  // Claims for 'pay' (Agent Payment) type tokens
+  "spr": "0.010000", // Seller Service Price
+  "sps": "PAY_PER_USE", // Seller Service Pricing Model
+  "amount": "15.000000", // Token Amount in Currency units
+  "cur": "USD", // Currency unit
+  "value": "15000000", // Token Amount in Settlement Network
+  "mnr": "1500", // Maximum number of requests when sps == "PAY_PER_USE"
+  "stp": "<COIN | CARD | BANK>", // Settlement type
+  "sti": { // Meta information for payment settlement depending on the settlement type
+    "type": "<'type' is dependant on 'sti'>", // for COIN - USDC | x402; for CARD - VISA_VIC;
+    // For type == USDC - No more sub-claims
+    // For type == VISA_VIC
+    "dynamicDataExpiration": "<Timestamp when DTVV expires>",
+    "dynamicDataId": "<Visa specific identifier>",
+    "dynamicDataType": "DAVV",
+    "dynamicDataValue": "<DAVV value>",
+    "paymentToken": "<16 Digit Virtual Payment Card Number>",
+    "tokenExpirationMonth": "<Expiration Month Number>",
+    "tokenExpirationYear": "<Expiration Year>"
+  }
+}
+
+                      Figure 2: A PAY type token
+
+3.3.  KYA+PAY Token
+
+   The following informative example displays a decoded KYA+PAY type
+   token.
+
+{
+  "kid": "<JWK Key ID>",
+  "alg": "ES256",
+  "typ": "kya+pay+JWT"
+}.{
+  "iss": "<URL of the token issuer>",
+  "iat": 1742245254,  // 'issued at' timestamp
+  "exp": 1773867654,  // 'expiration' timestamp
+  "jti": "b9821893-7699-4d24-af06-803a6a16476b", // Unique token ID
+  "sub": "<Buyer Agent Account ID>",
+  "aud": "<Seller Agent Account ID>",
+
+  // Claims common to both 'pay' and 'kya' types
+  "env": "<Issuer environment (sandbox, production, etc)>",
+  "ver": "1", // Version of the token
+  "ssi": "<Seller Service ID>", // Seller service that this token was created for
+  "btg": "<Buyer Tag (Buyer's internal reference ID)>",
+
+  // Claims for 'kya' (Know Your Agent) type tokens
+  "bid": {  // Buyer Identity claims
+    "email": "buyer@buyer.com”,
+    ...
+  },
+  "apd": { // Agent Platform Identity claims
+  },
+  "aid": { // Agent Identity claims
+  },
+
+  // Claims for 'pay' (Agent Payment) type tokens
+  "spr": "0.010000", // Seller Service Price
+  "sps": "PAY_PER_USE", // Seller Service Pricing Model
+  "amount": "15.000000", // Token Amount in Currency units
+  "cur": "USD", // Currency unit
+  "value": "15000000", // Token Amount in Settlement Network
+  "mnr": "1500", // Maximum number of requests when sps == "PAY_PER_USE"
+  "stp": "<COIN | CARD | BANK>", // Settlement type
+  "sti": { // Meta information for payment settlement depending on the settlement type
+    "type": "<'type' is dependant on 'sti'>", // for COIN - USDC | x402; for CARD - VISA_VIC;
+    // For type == USDC - No more sub-claims
+    // For type == VISA_VIC
+    "dynamicDataExpiration": "<Timestamp when DTVV expires>",
+    "dynamicDataId": "<Visa specific identifier>",
+    "dynamicDataType": "DAVV",
+    "dynamicDataValue": "<DAVV value>",
+    "paymentToken": "<16 Digit Virtual Payment Card Number>",
+    "tokenExpirationMonth": "<Expiration Month Number>",
+    "tokenExpirationYear": "<Expiration Year>"
+  }
+}
+
+                    Figure 3: A KYA+PAY type token
+
+4.  Security Considerations
 
    TODO Security
 
-4.  IANA Considerations
+5.  IANA Considerations
 
    This document has no IANA actions.
 
-5.  Normative References
+6.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
