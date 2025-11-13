@@ -5,12 +5,12 @@ category: info
 
 docname: draft-dz-kyapayprofile-latest
 submissiontype: IETF  # also: "independent", "editorial", "IAB", or "IRTF"
-#number: 
+#number:
 date:
 consensus: true
 v: 3
-area: AREA
-workgroup: TODO
+# area: AREA
+# workgroup: TODO
 keyword:
  - agent
 venue:
@@ -19,8 +19,8 @@ venue:
 #  type: Working Group
 #  mail: WG@example.com
 #  arch: https://example.com/WG
-#  github: USER/REPO
-#  latest: https://example.com/LATEST
+  github: "interop-alliance/kyapay-ietf-draft"
+  latest: "https://interop-alliance.github.io/kyapay-ietf-draft/draft-dz-kyapayprofile.html"
 
 author:
  -
@@ -80,7 +80,7 @@ The following informative example displays a decoded KYA type token.
 
   // Skyfire-defined claims for 'kya' (Know Your Agent) type tokens
   "bid": {  // Buyer Identity claims
-    "email": "buyer@buyer.com”, 
+    "email": "buyer@buyer.com”,
     ...
   },
   "apd": { // Agent Platform Identity claims
@@ -164,7 +164,7 @@ The following informative example displays a decoded KYA+PAY type token.
 
   // Claims for 'kya' (Know Your Agent) type tokens
   "bid": {  // Buyer Identity claims
-    "email": "buyer@buyer.com”, 
+    "email": "buyer@buyer.com”,
     ...
   },
   "apd": { // Agent Platform Identity claims
