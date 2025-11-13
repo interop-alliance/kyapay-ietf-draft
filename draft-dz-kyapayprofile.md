@@ -3,7 +3,7 @@ title: "KYAPay Profile"
 #abbrev: ""
 category: info
 
-docname: draft-dz-kyapayprofile
+docname: draft-dz-kyapayprofile-latest
 submissiontype: IETF  # also: "independent", "editorial", "IAB", or "IRTF"
 #number: 
 date:
