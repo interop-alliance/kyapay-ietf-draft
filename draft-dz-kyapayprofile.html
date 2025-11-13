@@ -14,7 +14,7 @@ tokens in an interoperable manner.
     " name="description">
 <meta content="xml2rfc 3.31.0" name="generator">
 <meta content="agent" name="keyword">
-<meta content="draft-dz-kyapayprofile" name="ietf.draft">
+<meta content="draft-dz-kyapayprofile-latest" name="ietf.draft">
 <!-- Generator version information:
   xml2rfc 3.31.0
     Python 3.12.12
@@ -1058,9 +1058,9 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <div id="internal-metadata" class="document-information">
 <dl id="identifiers">
 <dt class="label-workgroup">Workgroup:</dt>
-<dd class="workgroup">TODO</dd>
+<dd class="workgroup">Network Working Group</dd>
 <dt class="label-internet-draft">Internet-Draft:</dt>
-<dd class="internet-draft">draft-dz-kyapayprofile</dd>
+<dd class="internet-draft">draft-dz-kyapayprofile-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
 <time datetime="2025-11-13" class="published">13 November 2025</time>
@@ -1091,7 +1091,8 @@ tokens in an interoperable manner.<a href="#section-abstract-1" class="pilcrow">
       </h2>
 <p id="section-note.1-1">This note is to be removed before publishing as an RFC.<a href="#section-note.1-1" class="pilcrow">¶</a></p>
 <p id="section-note.1-2">
-        Status information for this document may be found at <span><a href="https://datatracker.ietf.org/doc/draft-dz/">https://datatracker.ietf.org/doc/draft-dz/</a></span>.<a href="#section-note.1-2" class="pilcrow">¶</a></p>
+        The latest revision of this draft can be found at <span><a href="https://interop-alliance.github.io/kyapay-ietf-draft/draft-dz-kyapayprofile.html">https://interop-alliance.github.io/kyapay-ietf-draft/draft-dz-kyapayprofile.html</a></span>.
+        Status information for this document may be found at <span><a href="https://datatracker.ietf.org/doc/draft-dz-kyapayprofile/">https://datatracker.ietf.org/doc/draft-dz-kyapayprofile/</a></span>.<a href="#section-note.1-2" class="pilcrow">¶</a></p>
 <p id="section-note.1-3">Source for this draft and an issue tracker can be found at
         <span><a href="https://github.com/interop-alliance/kyapay-ietf-draft">https://github.com/interop-alliance/kyapay-ietf-draft</a></span>.<a href="#section-note.1-3" class="pilcrow">¶</a></p>
 </section>
@@ -1148,18 +1149,26 @@ tokens in an interoperable manner.<a href="#section-abstract-1" class="pilcrow">
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2">
             <p id="section-toc.1-1.2.1" class="keepWithNext"><a href="#section-2" class="auto internal xref">2</a>.  <a href="#name-conventions-and-definitions" class="internal xref">Conventions and Definitions</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.1">
+                <p id="section-toc.1-1.2.2.1.1" class="keepWithNext"><a href="#section-2.1" class="auto internal xref">2.1</a>.  <a href="#name-roles" class="internal xref">Roles</a></p>
+</li>
+            </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3">
             <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-kyapay-token-schemas" class="internal xref">KYAPay Token Schemas</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1">
-                <p id="section-toc.1-1.3.2.1.1" class="keepWithNext"><a href="#section-3.1" class="auto internal xref">3.1</a>.  <a href="#name-kya-token" class="internal xref">KYA Token</a></p>
+                <p id="section-toc.1-1.3.2.1.1"><a href="#section-3.1" class="auto internal xref">3.1</a>.  <a href="#name-common-token-claims" class="internal xref">Common Token Claims</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2">
-                <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="auto internal xref">3.2</a>.  <a href="#name-pay-token" class="internal xref">PAY Token</a></p>
+                <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="auto internal xref">3.2</a>.  <a href="#name-kya-token" class="internal xref">KYA Token</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.3">
-                <p id="section-toc.1-1.3.2.3.1"><a href="#section-3.3" class="auto internal xref">3.3</a>.  <a href="#name-kyapay-token" class="internal xref">KYA+PAY Token</a></p>
+                <p id="section-toc.1-1.3.2.3.1"><a href="#section-3.3" class="auto internal xref">3.3</a>.  <a href="#name-pay-token" class="internal xref">PAY Token</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.4">
+                <p id="section-toc.1-1.3.2.4.1"><a href="#section-3.4" class="auto internal xref">3.4</a>.  <a href="#name-kyapay-token" class="internal xref">KYA+PAY Token</a></p>
 </li>
             </ul>
 </li>
@@ -1201,6 +1210,52 @@ more importantly identify their human principals.<a href="#section-1-1" class="p
 "<span class="bcp14">MAY</span>", and "<span class="bcp14">OPTIONAL</span>" in this document are to be interpreted as
 described in BCP 14 <span>[<a href="#RFC2119" class="cite xref">RFC2119</a>]</span> <span>[<a href="#RFC8174" class="cite xref">RFC8174</a>]</span> when, and only when, they
 appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶</a></p>
+<p id="section-2-2">The terms <code>iss</code>, <code>iat</code>, <code>exp</code>, <code>jti</code>, <code>aud</code>, <code>typ</code> are defined in <span>[<a href="#RFC7519" class="cite xref">RFC7519</a>]</span>.<a href="#section-2-2" class="pilcrow">¶</a></p>
+<p id="section-2-3">The <code>alg</code> value <code>ES256</code> is a digital signature algorithm described in
+<span><a href="https://rfc-editor.org/rfc/rfc7518#section-3.4" class="relref">Section 3.4</a> of [<a href="#RFC7518" class="cite xref">RFC7518</a>]</span>.<a href="#section-2-3" class="pilcrow">¶</a></p>
+<div id="roles">
+<section id="section-2.1">
+        <h3 id="name-roles">
+<a href="#section-2.1" class="section-number selfRef">2.1. </a><a href="#name-roles" class="section-name selfRef">Roles</a>
+        </h3>
+<span class="break"></span><dl class="dlParallel" id="section-2.1-1">
+          <dt id="section-2.1-1.1">Agent:</dt>
+          <dd style="margin-left: 1.5em" id="section-2.1-1.2">
+            <p id="section-2.1-1.2.1">todo ...<a href="#section-2.1-1.2.1" class="pilcrow">¶</a></p>
+</dd>
+          <dd class="break"></dd>
+<dt id="section-2.1-1.3">Agent Platform:</dt>
+          <dd style="margin-left: 1.5em" id="section-2.1-1.4">
+            <p id="section-2.1-1.4.1">todo ...<a href="#section-2.1-1.4.1" class="pilcrow">¶</a></p>
+</dd>
+          <dd class="break"></dd>
+<dt id="section-2.1-1.5">Principal:</dt>
+          <dd style="margin-left: 1.5em" id="section-2.1-1.6">
+            <p id="section-2.1-1.6.1">A legal entity (human or organization) on whose behalf / in whose authority
+an agent or service is operating.<a href="#section-2.1-1.6.1" class="pilcrow">¶</a></p>
+</dd>
+          <dd class="break"></dd>
+<dt id="section-2.1-1.7">Buyer Principal:</dt>
+          <dd style="margin-left: 1.5em" id="section-2.1-1.8">
+            <p id="section-2.1-1.8.1">A legal entity (human or organization) behind the purchase / consumption of a
+product or service. Typically interacts with the seller via an agent, agentic
+interface, or a programmatic interface (API). The Buyer Principal gives the
+agent or interface permission to act on their behalf.<a href="#section-2.1-1.8.1" class="pilcrow">¶</a></p>
+</dd>
+          <dd class="break"></dd>
+<dt id="section-2.1-1.9">Seller Service:</dt>
+          <dd style="margin-left: 1.5em" id="section-2.1-1.10">
+            <p id="section-2.1-1.10.1">todo ...<a href="#section-2.1-1.10.1" class="pilcrow">¶</a></p>
+</dd>
+          <dd class="break"></dd>
+<dt id="section-2.1-1.11">Settlement Network:</dt>
+          <dd style="margin-left: 1.5em" id="section-2.1-1.12">
+            <p id="section-2.1-1.12.1">todo ...<a href="#section-2.1-1.12.1" class="pilcrow">¶</a></p>
+</dd>
+        <dd class="break"></dd>
+</dl>
+</section>
+</div>
 </section>
 </div>
 <div id="kyapay-token-schemas">
@@ -1208,15 +1263,107 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
       <h2 id="name-kyapay-token-schemas">
 <a href="#section-3" class="section-number selfRef">3. </a><a href="#name-kyapay-token-schemas" class="section-name selfRef">KYAPay Token Schemas</a>
       </h2>
-<div id="kya-token">
+<div id="common-token-claims">
 <section id="section-3.1">
-        <h3 id="name-kya-token">
-<a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-kya-token" class="section-name selfRef">KYA Token</a>
+        <h3 id="name-common-token-claims">
+<a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-common-token-claims" class="section-name selfRef">Common Token Claims</a>
         </h3>
-<p id="section-3.1-1">The following informative example displays a decoded KYA type token.<a href="#section-3.1-1" class="pilcrow">¶</a></p>
+<p id="section-3.1-1">The following are claims in common, used within the KYA (Know Your Agent),
+PAY (Payment), and KYA+PAY (combined Know Your Agent and Payment) Tokens:<a href="#section-3.1-1" class="pilcrow">¶</a></p>
+<span class="break"></span><dl class="dlParallel" id="section-3.1-2">
+          <dt id="section-3.1-2.1">
+<code>iss</code>:</dt>
+          <dd style="margin-left: 1.5em" id="section-3.1-2.2">
+            <p id="section-3.1-2.2.1"><span class="bcp14">REQUIRED</span> - The issuer as defined in ...<a href="#section-3.1-2.2.1" class="pilcrow">¶</a></p>
+</dd>
+          <dd class="break"></dd>
+<dt id="section-3.1-2.3">
+<code>sub</code>:</dt>
+          <dd style="margin-left: 1.5em" id="section-3.1-2.4">
+            <p id="section-3.1-2.4.1">? - Subject Identifier as defined in ...<a href="#section-3.1-2.4.1" class="pilcrow">¶</a></p>
+</dd>
+          <dd class="break"></dd>
+<dt id="section-3.1-2.5">
+<code>aud</code>:</dt>
+          <dd style="margin-left: 1.5em" id="section-3.1-2.6">
+            <p id="section-3.1-2.6.1"><span class="bcp14">REQUIRED</span> - ...<a href="#section-3.1-2.6.1" class="pilcrow">¶</a></p>
+</dd>
+          <dd class="break"></dd>
+<dt id="section-3.1-2.7">
+<code>iat</code>:</dt>
+          <dd style="margin-left: 1.5em" id="section-3.1-2.8">
+            <p id="section-3.1-2.8.1"><span class="bcp14">REQUIRED</span> - as defined in <span><a href="https://rfc-editor.org/rfc/rfc7519#section-4.1.6" class="relref">Section 4.1.6</a> of [<a href="#RFC7519" class="cite xref">RFC7519</a>]</span>.<a href="#section-3.1-2.8.1" class="pilcrow">¶</a></p>
+</dd>
+          <dd class="break"></dd>
+<dt id="section-3.1-2.9">
+<code>jti</code>:</dt>
+          <dd style="margin-left: 1.5em" id="section-3.1-2.10">
+            <p id="section-3.1-2.10.1"><span class="bcp14">REQUIRED</span> - Unique ID of this JWT as defined in <span><a href="https://rfc-editor.org/rfc/rfc7519#section-4.1.7" class="relref">Section 4.1.7</a> of [<a href="#RFC7519" class="cite xref">RFC7519</a>]</span>.<a href="#section-3.1-2.10.1" class="pilcrow">¶</a></p>
+</dd>
+          <dd class="break"></dd>
+<dt id="section-3.1-2.11">
+<code>exp</code>:</dt>
+          <dd style="margin-left: 1.5em" id="section-3.1-2.12">
+            <p id="section-3.1-2.12.1"><span class="bcp14">REQUIRED</span> - as defined in <span><a href="https://rfc-editor.org/rfc/rfc7519#section-4.1.4" class="relref">Section 4.1.4</a> of [<a href="#RFC7519" class="cite xref">RFC7519</a>]</span>.<a href="#section-3.1-2.12.1" class="pilcrow">¶</a></p>
+</dd>
+          <dd class="break"></dd>
+<dt id="section-3.1-2.13">
+<code>env</code>:</dt>
+          <dd style="margin-left: 1.5em" id="section-3.1-2.14">
+            <p id="section-3.1-2.14.1"><span class="bcp14">OPTIONAL</span> - Issuer environment (such as "sandbox" or "production").<a href="#section-3.1-2.14.1" class="pilcrow">¶</a></p>
+</dd>
+          <dd class="break"></dd>
+<dt id="section-3.1-2.15">
+<code>ver</code>:</dt>
+          <dd style="margin-left: 1.5em" id="section-3.1-2.16">
+            <p id="section-3.1-2.16.1">? - Version of the token schema.<a href="#section-3.1-2.16.1" class="pilcrow">¶</a></p>
+</dd>
+          <dd class="break"></dd>
+<dt id="section-3.1-2.17">
+<code>ssi</code>:</dt>
+          <dd style="margin-left: 1.5em" id="section-3.1-2.18">
+            <p id="section-3.1-2.18.1">? - Seller Service ID that this token was created for.<a href="#section-3.1-2.18.1" class="pilcrow">¶</a></p>
+</dd>
+          <dd class="break"></dd>
+<dt id="section-3.1-2.19">
+<code>btg</code>:</dt>
+          <dd style="margin-left: 1.5em" id="section-3.1-2.20">
+            <p id="section-3.1-2.20.1">? - Buyer tag, an opaque reference ID internal to the buyer.<a href="#section-3.1-2.20.1" class="pilcrow">¶</a></p>
+</dd>
+        <dd class="break"></dd>
+</dl>
+</section>
+</div>
+<div id="kya-token">
+<section id="section-3.2">
+        <h3 id="name-kya-token">
+<a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-kya-token" class="section-name selfRef">KYA Token</a>
+        </h3>
+<p id="section-3.2-1">The following identity related claims are used within KYA and KYA+PAY tokens:<a href="#section-3.2-1" class="pilcrow">¶</a></p>
+<span class="break"></span><dl class="dlParallel" id="section-3.2-2">
+          <dt id="section-3.2-2.1">
+<code>bid</code>:</dt>
+          <dd style="margin-left: 1.5em" id="section-3.2-2.2">
+            <p id="section-3.2-2.2.1">? - Buyer identity claims<a href="#section-3.2-2.2.1" class="pilcrow">¶</a></p>
+</dd>
+          <dd class="break"></dd>
+<dt id="section-3.2-2.3">
+<code>apd</code>:</dt>
+          <dd style="margin-left: 1.5em" id="section-3.2-2.4">
+            <p id="section-3.2-2.4.1"><span class="bcp14">OPTIONAL</span> - Agent Platform identity claims.<a href="#section-3.2-2.4.1" class="pilcrow">¶</a></p>
+</dd>
+          <dd class="break"></dd>
+<dt id="section-3.2-2.5">
+<code>aid</code>:</dt>
+          <dd style="margin-left: 1.5em" id="section-3.2-2.6">
+            <p id="section-3.2-2.6.1"><span class="bcp14">OPTIONAL</span> - Agent identity claims.<a href="#section-3.2-2.6.1" class="pilcrow">¶</a></p>
+</dd>
+        <dd class="break"></dd>
+</dl>
+<p id="section-3.2-3">The following informative example displays a decoded KYA type token.<a href="#section-3.2-3" class="pilcrow">¶</a></p>
 <span id="name-a-kya-type-token"></span><div id="example-decoded-kya-token">
 <figure id="figure-1">
-          <div class="alignLeft art-text artwork" id="section-3.1-2.1">
+          <div class="alignLeft art-text artwork" id="section-3.2-4.1">
 <pre>
 {
   "kid": "&lt;JWK Key ID&gt;",
@@ -1224,26 +1371,24 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
   "typ": "kya+JWT"
 }.{
   "iss": "&lt;URL of the token issuer&gt;",
-  "iat": 1742245254,  // 'issued at' timestamp
-  "exp": 1773867654,  // 'expiration' timestamp
-  "jti": "b9821893-7699-4d24-af06-803a6a16476b", // Unique token ID
+  "iat": 1742245254,
+  "exp": 1773867654,
+  "jti": "b9821893-7699-4d24-af06-803a6a16476b",
   "sub": "&lt;Buyer Agent Account ID&gt;",
   "aud": "&lt;Seller Agent Account ID&gt;",
 
-  // Claims common to both 'pay' and 'kya' types
   "env": "&lt;Issuer environment (sandbox, production, etc)&gt;",
-  "ver": "1", // Version of the token
-  "ssi": "&lt;Seller Service ID&gt;", // Seller service that this token was created for
+  "ver": "1",
+  "ssi": "&lt;Seller Service ID&gt;",
   "btg": "&lt;Buyer Tag (Buyer's internal reference ID)&gt;",
 
-  // Skyfire-defined claims for 'kya' (Know Your Agent) type tokens
-  "bid": {  // Buyer Identity claims
+  "bid": {
     "email": "buyer@buyer.com”,
     ...
   },
-  "apd": { // Agent Platform Identity claims
+  "apd": {
   },
-  "aid": { // Agent Identity claims
+  "aid": {
   }
 }
 </pre>
@@ -1255,14 +1400,66 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
 </section>
 </div>
 <div id="pay-token">
-<section id="section-3.2">
+<section id="section-3.3">
         <h3 id="name-pay-token">
-<a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-pay-token" class="section-name selfRef">PAY Token</a>
+<a href="#section-3.3" class="section-number selfRef">3.3. </a><a href="#name-pay-token" class="section-name selfRef">PAY Token</a>
         </h3>
-<p id="section-3.2-1">The following informative example displays a decoded PAY type token.<a href="#section-3.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.3-1">The following payment related claims are used within PAY and KYA+PAY type tokens:<a href="#section-3.3-1" class="pilcrow">¶</a></p>
+<span class="break"></span><dl class="dlParallel" id="section-3.3-2">
+          <dt id="section-3.3-2.1">
+<code>spr</code>:</dt>
+          <dd style="margin-left: 1.5em" id="section-3.3-2.2">
+            <p id="section-3.3-2.2.1"><span class="bcp14">OPTIONAL</span> - Seller service price.<a href="#section-3.3-2.2.1" class="pilcrow">¶</a></p>
+</dd>
+          <dd class="break"></dd>
+<dt id="section-3.3-2.3">
+<code>sps</code>:</dt>
+          <dd style="margin-left: 1.5em" id="section-3.3-2.4">
+            <p id="section-3.3-2.4.1"><span class="bcp14">OPTIONAL</span> - Seller service pricing model (for example, <code>PAY_PER_USE</code>).<a href="#section-3.3-2.4.1" class="pilcrow">¶</a></p>
+</dd>
+          <dd class="break"></dd>
+<dt id="section-3.3-2.5">
+<code>amount</code>:</dt>
+          <dd style="margin-left: 1.5em" id="section-3.3-2.6">
+            <p id="section-3.3-2.6.1">? - Token amount in currency units.<a href="#section-3.3-2.6.1" class="pilcrow">¶</a></p>
+</dd>
+          <dd class="break"></dd>
+<dt id="section-3.3-2.7">
+<code>cur</code>:</dt>
+          <dd style="margin-left: 1.5em" id="section-3.3-2.8">
+            <p id="section-3.3-2.8.1">? - Currency unit, as defined in ...<a href="#section-3.3-2.8.1" class="pilcrow">¶</a></p>
+</dd>
+          <dd class="break"></dd>
+<dt id="section-3.3-2.9">
+<code>value</code>:</dt>
+          <dd style="margin-left: 1.5em" id="section-3.3-2.10">
+            <p id="section-3.3-2.10.1">? - Token amount in settlement network<a href="#section-3.3-2.10.1" class="pilcrow">¶</a></p>
+</dd>
+          <dd class="break"></dd>
+<dt id="section-3.3-2.11">
+<code>mnr</code>:</dt>
+          <dd style="margin-left: 1.5em" id="section-3.3-2.12">
+            <p id="section-3.3-2.12.1"><span class="bcp14">OPTIONAL</span> - Maximum number of requests when <code>sps</code> is <code>PAY_PER_USE</code><a href="#section-3.3-2.12.1" class="pilcrow">¶</a></p>
+</dd>
+          <dd class="break"></dd>
+<dt id="section-3.3-2.13">
+<code>stp</code>:</dt>
+          <dd style="margin-left: 1.5em" id="section-3.3-2.14">
+            <p id="section-3.3-2.14.1"><span class="bcp14">OPTIONAL</span> - Settlement type (one of <code>COIN</code>, <code>CARD</code>, or <code>BANK</code>).<a href="#section-3.3-2.14.1" class="pilcrow">¶</a></p>
+</dd>
+          <dd class="break"></dd>
+<dt id="section-3.3-2.15">
+<code>sti</code>:</dt>
+          <dd style="margin-left: 1.5em" id="section-3.3-2.16">
+            <p id="section-3.3-2.16.1"><span class="bcp14">OPTIONAL</span> - Meta information for payment settlement, depending on settlement
+type.<a href="#section-3.3-2.16.1" class="pilcrow">¶</a></p>
+</dd>
+        <dd class="break"></dd>
+</dl>
+<p id="section-3.3-3">The following informative example displays a decoded PAY type token.<a href="#section-3.3-3" class="pilcrow">¶</a></p>
 <span id="name-a-pay-type-token"></span><div id="example-decoded-pay-token">
 <figure id="figure-2">
-          <div class="alignLeft art-text artwork" id="section-3.2-2.1">
+          <div class="alignLeft art-text artwork" id="section-3.3-4.1">
 <pre>
 {
   "kid": "&lt;JWK Key ID&gt;",
@@ -1270,30 +1467,26 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
   "typ": "pay+JWT"
 }.{
   "iss": "&lt;URL of the token issuer&gt;",
-  "iat": 1742245254,  // 'issued at' timestamp
-  "exp": 1773867654,  // 'expiration' timestamp
-  "jti": "b9821893-7699-4d24-af06-803a6a16476b", // Unique token ID
+  "iat": 1742245254,
+  "exp": 1773867654,
+  "jti": "b9821893-7699-4d24-af06-803a6a16476b",
   "sub": "&lt;Buyer Agent Account ID&gt;",
   "aud": "&lt;Seller Agent Account ID&gt;",
 
-  // Claims common to both 'pay' and 'kya' types
   "env": "&lt;Issuer environment (sandbox, production, etc)&gt;",
-  "ver": "1", // Version of the token
-  "ssi": "&lt;Seller Service ID&gt;", // Seller service that this token was created for
+  "ver": "1",
+  "ssi": "&lt;Seller Service ID&gt;",
   "btg": "&lt;Buyer Tag (Buyer's internal reference ID)&gt;",
 
-  // Claims for 'pay' (Agent Payment) type tokens
-  "spr": "0.010000", // Seller Service Price
-  "sps": "PAY_PER_USE", // Seller Service Pricing Model
-  "amount": "15.000000", // Token Amount in Currency units
-  "cur": "USD", // Currency unit
-  "value": "15000000", // Token Amount in Settlement Network
-  "mnr": "1500", // Maximum number of requests when sps == "PAY_PER_USE"
-  "stp": "&lt;COIN | CARD | BANK&gt;", // Settlement type
-  "sti": { // Meta information for payment settlement depending on the settlement type
-    "type": "&lt;'type' is dependant on 'sti'&gt;", // for COIN - USDC | x402; for CARD - VISA_VIC;
-    // For type == USDC - No more sub-claims
-    // For type == VISA_VIC
+  "spr": "0.010000",
+  "sps": "PAY_PER_USE",
+  "amount": "15.000000",
+  "cur": "USD",
+  "value": "15000000",
+  "mnr": "1500",
+  "stp": "&lt;COIN | CARD | BANK&gt;",
+  "sti": {
+    "type": "&lt;'type' is dependant on 'sti' for COIN - USDC | x402; for CARD - VISA_VIC;&gt;",
     "dynamicDataExpiration": "&lt;Timestamp when DTVV expires&gt;",
     "dynamicDataId": "&lt;Visa specific identifier&gt;",
     "dynamicDataType": "DAVV",
@@ -1313,14 +1506,14 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
 </section>
 </div>
 <div id="kyapay-token">
-<section id="section-3.3">
+<section id="section-3.4">
         <h3 id="name-kyapay-token">
-<a href="#section-3.3" class="section-number selfRef">3.3. </a><a href="#name-kyapay-token" class="section-name selfRef">KYA+PAY Token</a>
+<a href="#section-3.4" class="section-number selfRef">3.4. </a><a href="#name-kyapay-token" class="section-name selfRef">KYA+PAY Token</a>
         </h3>
-<p id="section-3.3-1">The following informative example displays a decoded KYA+PAY type token.<a href="#section-3.3-1" class="pilcrow">¶</a></p>
+<p id="section-3.4-1">The following informative example displays a decoded KYA+PAY type token.<a href="#section-3.4-1" class="pilcrow">¶</a></p>
 <span id="name-a-kyapay-type-token"></span><div id="example-decoded-kya-pay-token">
 <figure id="figure-3">
-          <div class="alignLeft art-text artwork" id="section-3.3-2.1">
+          <div class="alignLeft art-text artwork" id="section-3.4-2.1">
 <pre>
 {
   "kid": "&lt;JWK Key ID&gt;",
@@ -1328,40 +1521,35 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
   "typ": "kya+pay+JWT"
 }.{
   "iss": "&lt;URL of the token issuer&gt;",
-  "iat": 1742245254,  // 'issued at' timestamp
-  "exp": 1773867654,  // 'expiration' timestamp
-  "jti": "b9821893-7699-4d24-af06-803a6a16476b", // Unique token ID
+  "iat": 1742245254,
+  "exp": 1773867654,
+  "jti": "b9821893-7699-4d24-af06-803a6a16476b",
   "sub": "&lt;Buyer Agent Account ID&gt;",
   "aud": "&lt;Seller Agent Account ID&gt;",
 
-  // Claims common to both 'pay' and 'kya' types
   "env": "&lt;Issuer environment (sandbox, production, etc)&gt;",
-  "ver": "1", // Version of the token
-  "ssi": "&lt;Seller Service ID&gt;", // Seller service that this token was created for
+  "ver": "1",
+  "ssi": "&lt;Seller Service ID&gt;",
   "btg": "&lt;Buyer Tag (Buyer's internal reference ID)&gt;",
 
-  // Claims for 'kya' (Know Your Agent) type tokens
-  "bid": {  // Buyer Identity claims
+  "bid": {
     "email": "buyer@buyer.com”,
     ...
   },
-  "apd": { // Agent Platform Identity claims
+  "apd": {
   },
-  "aid": { // Agent Identity claims
+  "aid": {
   },
 
-  // Claims for 'pay' (Agent Payment) type tokens
-  "spr": "0.010000", // Seller Service Price
-  "sps": "PAY_PER_USE", // Seller Service Pricing Model
-  "amount": "15.000000", // Token Amount in Currency units
-  "cur": "USD", // Currency unit
-  "value": "15000000", // Token Amount in Settlement Network
-  "mnr": "1500", // Maximum number of requests when sps == "PAY_PER_USE"
-  "stp": "&lt;COIN | CARD | BANK&gt;", // Settlement type
-  "sti": { // Meta information for payment settlement depending on the settlement type
-    "type": "&lt;'type' is dependant on 'sti'&gt;", // for COIN - USDC | x402; for CARD - VISA_VIC;
-    // For type == USDC - No more sub-claims
-    // For type == VISA_VIC
+  "spr": "0.010000",
+  "sps": "PAY_PER_USE",
+  "amount": "15.000000",
+  "cur": "USD",
+  "value": "15000000",
+  "mnr": "1500",
+  "stp": "&lt;COIN | CARD | BANK&gt;",
+  "sti": {
+    "type": "&lt;'type' is dependant on 'sti'&gt;",
     "dynamicDataExpiration": "&lt;Timestamp when DTVV expires&gt;",
     "dynamicDataId": "&lt;Visa specific identifier&gt;",
     "dynamicDataType": "DAVV",
@@ -1407,6 +1595,14 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
 <dt id="RFC2119">[RFC2119]</dt>
       <dd>
 <span class="refAuthor">Bradner, S.</span>, <span class="refTitle">"Key words for use in RFCs to Indicate Requirement Levels"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 2119</span>, <span class="seriesInfo">DOI 10.17487/RFC2119</span>, <time datetime="1997-03" class="refDate">March 1997</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc2119">https://www.rfc-editor.org/rfc/rfc2119</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC7518">[RFC7518]</dt>
+      <dd>
+<span class="refAuthor">Jones, M.</span>, <span class="refTitle">"JSON Web Algorithms (JWA)"</span>, <span class="seriesInfo">RFC 7518</span>, <span class="seriesInfo">DOI 10.17487/RFC7518</span>, <time datetime="2015-05" class="refDate">May 2015</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc7518">https://www.rfc-editor.org/rfc/rfc7518</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC7519">[RFC7519]</dt>
+      <dd>
+<span class="refAuthor">Jones, M.</span>, <span class="refAuthor">Bradley, J.</span>, and <span class="refAuthor">N. Sakimura</span>, <span class="refTitle">"JSON Web Token (JWT)"</span>, <span class="seriesInfo">RFC 7519</span>, <span class="seriesInfo">DOI 10.17487/RFC7519</span>, <time datetime="2015-05" class="refDate">May 2015</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc7519">https://www.rfc-editor.org/rfc/rfc7519</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8174">[RFC8174]</dt>
     <dd>
