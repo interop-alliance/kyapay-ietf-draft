@@ -188,7 +188,7 @@ The following payment related claims are used within PAY and KYA+PAY type tokens
 : OPTIONAL - Maximum number of requests when `sps` is `PAY_PER_USE`
 
 `stp`:
-: OPTIONAL - Settlement type (`COIN` | `CARD` | `BANK`).
+: OPTIONAL - Settlement type (one of `COIN`, `CARD`, or `BANK`).
 
 `sti`:
 : OPTIONAL - Meta information for payment settlement, depending on settlement
